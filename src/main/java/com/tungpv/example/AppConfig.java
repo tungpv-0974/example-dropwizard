@@ -2,32 +2,23 @@ package com.tungpv.example;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
+import lombok.Getter;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.util.Map;
+
+@Getter
 public class AppConfig extends Configuration {
     @NotEmpty
+    @JsonProperty
     private String template;
 
     @NotEmpty
+    @JsonProperty
     private String defaultName = "Stranger";
 
-    @JsonProperty
-    public String getTemplate() {
-        return template;
-    }
+    @JsonProperty("views")
+    public Map<String, Map<String, String>> views;
 
-    @JsonProperty
-    public void setTemplate(String template) {
-        this.template = template;
-    }
 
-    @JsonProperty
-    public String getDefaultName() {
-        return defaultName;
-    }
-
-    @JsonProperty
-    public void setDefaultName(String name) {
-        this.defaultName = name;
-    }
 }
