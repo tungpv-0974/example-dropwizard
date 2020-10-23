@@ -5,3 +5,8 @@ server:
   type: simple
   rootPath: /
   applicationContextPath: /
+
+views:
+  .html:
+    cache: false
+    prefix: "/templates"
